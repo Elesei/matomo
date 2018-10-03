@@ -214,6 +214,8 @@ var Piwik_Overlay = (function () {
             }
 
             angular.element(document).injector().invoke(['piwikApi', function (piwikApi) {
+                console.log('params');
+                console.log(JSON.stringify(params));
                 piwikApi.fetch(params)
                     .then(function (response) {
                         console.log(event.origin);

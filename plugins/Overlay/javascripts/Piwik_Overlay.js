@@ -189,8 +189,6 @@ var Piwik_Overlay = (function () {
 
     function handleApiRequests() {
         window.addEventListener("message", function (event) {
-            console.log(event.origin);
-            console.log(event.data);
             if (event.origin !== iframeOrigin || !iframeOrigin) {
                 return;
             }
@@ -218,6 +216,9 @@ var Piwik_Overlay = (function () {
             angular.element(document).injector().invoke(['piwikApi', function (piwikApi) {
                 piwikApi.fetch(params)
                     .then(function (response) {
+                        console.log(event.origin);
+                        console.log(event.data);
+                        console.log(JSON.stringify(response));
                         sendResponse(response);
                     }).catch(function (err) {
                         sendResponse({

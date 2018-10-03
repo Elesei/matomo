@@ -189,6 +189,8 @@ var Piwik_Overlay = (function () {
 
     function handleApiRequests() {
         window.addEventListener("message", function (event) {
+            console.log(event.origin);
+            console.log(event.data);
             if (event.origin !== iframeOrigin || !iframeOrigin) {
                 return;
             }

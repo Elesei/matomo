@@ -100,6 +100,9 @@ var Piwik_Overlay_Client = (function () {
 
     function handlePostMessages() {
         window.addEventListener("message", function (event) {
+            console.log('inside');
+            console.log(event.origin);
+            console.log(event.data);
             if (event.origin !== piwikOrigin) {
                 return;
             }
